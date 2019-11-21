@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+
    public InputManager(){
 
    }
@@ -18,6 +19,10 @@ public class InputManager : MonoBehaviour
        }else if(command.ToLower().StartsWith("kill")){
            inputWords = new string[]{
                "kill", command.Replace("kill ", string.Empty).Replace("kill ", string.Empty)};
+       }else if(command.ToLower().StartsWith("pick")){
+           inputWords = new string[]{
+               "pick", command.Replace("pick ", string.Empty).Replace("pick ", string.Empty)};
+
        }else{
            inputWords = command.Split(' ');
 

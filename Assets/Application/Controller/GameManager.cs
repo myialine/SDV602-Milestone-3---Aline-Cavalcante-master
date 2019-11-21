@@ -33,16 +33,13 @@ public class GameManager : MonoBehaviour
 
         database = new DatabaseManager ("Paranoia.db");
     }
-    private float chatMsgUpdate = 1.2f, lastMsgUpdate = 0.0f;
+    private float chatMsgUpdate = 1.0f, lastMsgUpdate = 0.0f;
     
     void Update(){        
         
     }
 
-    public void Story(){
-        
-        GameModel.RoomNavigation();
-    }
+   
 
     #region Chat management
     void chatMsgCount(List<ChatData> chatMsgList){

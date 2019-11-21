@@ -68,11 +68,12 @@
      <Compile Include="Assets\Application\Model\Database\SQLite.cs" />
      <Compile Include="Assets\Application\Model\GameData\GameModel.cs" />
      <Compile Include="Assets\Application\Model\GameData\Player.cs" />
+     <Compile Include="Assets\Application\Model\GameData\PlayerManager.cs" />
      <Compile Include="Assets\Application\Model\GameData\Room.cs" />
      <Compile Include="Assets\Application\Model\GameData\RoomManager.cs" />
+     <Compile Include="Assets\Application\Model\GameData\StoryManager.cs" />
      <Compile Include="Assets\Application\Model\GameData\UserAccount.cs" />
      <Compile Include="Assets\Application\Model\InputManager.cs" />
-     <Compile Include="Assets\Application\Model\PlayerManager.cs" />
      <Compile Include="Assets\Application\Model\QRCodeState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

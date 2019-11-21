@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QRCodeBackandForth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public GameObject QrCodeButton;
+   public GameObject BackButton;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public void QrCodeChangeScene(){
+       if(QrCodeButton != null){
+           SceneManager.LoadScene("QRLogin");
+       }
+   }
+
+   public void QrCodeGoBack(){
+       if(BackButton != null){
+           SceneManager.LoadScene("LoginScene");
+       }
+   }
+
 }

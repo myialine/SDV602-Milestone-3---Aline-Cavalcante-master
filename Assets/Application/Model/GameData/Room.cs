@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using SQLite4Unity3d;
 using System.Linq;
+using Newtonsoft.Json;
+
 
 public class Room 
 {
-   
-   public static List<Room> Rooms = new List<Room>();
+      
    //public static DataService ds = new DataService("Paranoia.db");
    private Player newPlayer = new Player();
+   
+   [SerializeField]
    private Room currentRoom;
 
    //This determines the amount of rooms on the array.
-   private Room[] roomPaths = new Room[20];
-   private string roomDescriptions = "default";
+      private string roomDescriptions = "default";
 
    public string description
    {
@@ -22,7 +24,36 @@ public class Room
            return roomDescriptions;
        } 
        set {
-           roomDescriptions = value;
+           bedroom.roomDescriptions = "";
+           computerRoom.roomDescriptions = "";
+           briefingRoom.roomDescriptions = "";
+
+           briefingRoomGrenade.roomDescriptions = "";
+           briefingRoomCard.roomDescriptions = "";
+
+           briefingKillAlyss.roomDescriptions = "";
+           briefingKillKrueger.roomDescriptions = "";
+           briefingStopFight.roomDescriptions = "";
+
+           serverBasement.roomDescriptions = "";
+
+           openOrangeDoor.roomDescriptions = "";
+           BlastOrangeDoor.roomDescriptions = "";
+           ExplodeOrangeDoor.roomDescriptions = "";
+
+           redDoorRoom.roomDescriptions = "";
+
+           RedRoomTalkAlyssAlive.roomDescriptions = "";
+           RedRoomTalkKruegerAlive.roomDescriptions = "";
+           RedRoomTalkAllAlive.roomDescriptions = "";
+
+           RedRoomFightAllyssAlive.roomDescriptions = "";
+           RedRoomFightKruegerAlive.roomDescriptions = "";
+           RedRoomFightAllAlive.roomDescriptions = "";
+
+           CantGoBack.roomDescriptions = "You cannot go back. Live with your decisions";
+
+
        }
    }
 
@@ -30,100 +61,100 @@ public class Room
     public Room bedroom
     {
         get{
-            return roomPaths[(int)GameModel.Direction.bedroom];
+            return bedroom;
         }
         set{
-            roomPaths[(int)GameModel.Direction.bedroom] = value;
+            bedroom = value;
         }
     }
 
     public Room computerRoom
     {
         get{
-            return roomPaths[(int)GameModel.Direction.computerRoom];
+            return computerRoom;
         }
         set{
-            roomPaths[(int)GameModel.Direction.computerRoom] = value;
+            computerRoom = value;
         }
     }
 
     public Room briefingRoom
     {
         get{
-            return roomPaths[(int)GameModel.Direction.briefingRoom];
+            return briefingRoom;
         }
         set{
-            roomPaths[(int)GameModel.Direction.briefingRoom] = value;
+           briefingRoom = value;
         }
     }
     //Some paths depend on choices. Briefing room has two important choices changing the story
     public Room briefingRoomGrenade
     {
         get{
-            return roomPaths[(int)GameModel.Direction.briefingRoomGrenade];
+            return briefingRoomGrenade;
         }
         set{
-            roomPaths[(int)GameModel.Direction.briefingRoomGrenade] = value;
+            briefingRoomGrenade = value;
         }
     }
 
     public Room briefingRoomCard
     {
         get{
-            return roomPaths[(int)GameModel.Direction.briefingRoomCard];
+            return briefingRoomCard;
         }
         set{
-            roomPaths[(int)GameModel.Direction.briefingRoomCard] = value;
+            briefingRoomCard = value;
         }
     }
 
     public Room briefingKillAlyss
     {
         get{
-            return roomPaths[(int)GameModel.Direction.briefingKillAlyss];
+            return briefingKillAlyss;
         }
         set{
-            roomPaths[(int)GameModel.Direction.briefingKillAlyss] = value;
+            briefingKillAlyss = value;
         }
     }
     public Room briefingKillKrueger
     {
         get{
-            return roomPaths[(int)GameModel.Direction.briefingKillKrueger];
+            return briefingKillKrueger;
         }
         set{
-            roomPaths[(int)GameModel.Direction.briefingKillKrueger] = value;
+            briefingKillKrueger = value;
         }
     }
     
     public Room briefingStopFight
     {
         get{
-            return roomPaths[(int)GameModel.Direction.briefingStopFight];
+            return briefingStopFight;
         }
         set{
-            roomPaths[(int)GameModel.Direction.briefingStopFight] = value;
+            briefingStopFight = value;
         }
     }
 
-    //This is were things get ugly. If you reckless, you die.
+    
     public Room serverBasement
     {
         get{
-            return roomPaths[(int)GameModel.Direction.serverBasement];
+            return serverBasement;
         }
         set{
-            roomPaths[(int)GameModel.Direction.serverBasement] = value;
+            serverBasement = value;
         }
     }
 
     public Room openOrangeDoor
     {
         get{
-            return roomPaths[(int)GameModel.Direction.openOrangeDoor];
+            return openOrangeDoor;
         }
         set{
-            roomPaths[(int)GameModel.Direction.openOrangeDoor] = value;
+            openOrangeDoor = value;
         }
     }
 
@@ -131,88 +162,88 @@ public class Room
     public Room BlastOrangeDoor
     {
         get{
-            return roomPaths[(int)GameModel.Direction.BlastOrangeDoor];
+            return BlastOrangeDoor;
         }
         set{
-            roomPaths[(int)GameModel.Direction.BlastOrangeDoor] = value;
+            BlastOrangeDoor = value;
         }
     }
 
     public Room ExplodeOrangeDoor
     {
         get{
-            return roomPaths[(int)GameModel.Direction.ExplodeOrangeDoor];
+            return ExplodeOrangeDoor;
         }
         set{
-            roomPaths[(int)GameModel.Direction.ExplodeOrangeDoor] = value;
+            ExplodeOrangeDoor = value;
         }
     }
 
     public Room redDoorRoom
     {
         get{
-            return roomPaths[(int)GameModel.Direction.redDoorRoom];
+            return redDoorRoom;
         }
         set{
-            roomPaths[(int)GameModel.Direction.redDoorRoom] = value;
+            redDoorRoom = value;
         }
     }
     // Consequences of previous choices about Krueger and Allyss
     public Room RedRoomTalkAlyssAlive{
         get{
-            return roomPaths[(int)GameModel.Direction.RedRoomTalkAlyssAlive];
+            return RedRoomTalkAlyssAlive;
         }
         set{
-            roomPaths[(int)GameModel.Direction.RedRoomTalkAlyssAlive] = value;
+            RedRoomTalkAlyssAlive = value;
         }
     }
     public Room RedRoomTalkKruegerAlive{
         get{
-            return roomPaths[(int)GameModel.Direction.RedRoomTalkKruegerAlive];
+            return RedRoomTalkKruegerAlive;
         }
         set{
-            roomPaths[(int)GameModel.Direction.RedRoomTalkKruegerAlive] = value;
+            RedRoomTalkKruegerAlive = value;
         }
     }
     public Room RedRoomTalkAllAlive{
         get{
-            return roomPaths[(int)GameModel.Direction.RedRoomTalkAllAlive];
+            return RedRoomTalkAllAlive;
         }
         set{
-            roomPaths[(int)GameModel.Direction.RedRoomTalkAllAlive] = value;
+            RedRoomTalkAllAlive = value;
         }
     }
 
     public Room RedRoomFightAllyssAlive{
         get{
-            return roomPaths[(int)GameModel.Direction.RedRoomFightAllyssAlive];
+            return RedRoomFightAllyssAlive;
         }
         set{
-            roomPaths[(int)GameModel.Direction.RedRoomFightAllyssAlive] = value;
+            RedRoomFightAllyssAlive = value;
         }
     }
     public Room RedRoomFightKruegerAlive{
         get{
-            return roomPaths[(int)GameModel.Direction.RedRoomFightKruegerAlive];
+            return RedRoomFightKruegerAlive;
         }
         set{
-            roomPaths[(int)GameModel.Direction.RedRoomFightKruegerAlive] = value;
+            RedRoomFightKruegerAlive = value;
         }
     }
     public Room RedRoomFightAllAlive{
         get{
-            return roomPaths[(int)GameModel.Direction.RedRoomFightAllAlive];
+            return RedRoomFightAllAlive;
         }
         set{
-            roomPaths[(int)GameModel.Direction.RedRoomFightAllAlive] = value;
+            RedRoomFightAllAlive = value;
         }
     }
     public Room CantGoBack{
         get{
-            return roomPaths[(int)GameModel.Direction.CantGoBack];
+            return CantGoBack;
         }
         set{
-            roomPaths[(int)GameModel.Direction.CantGoBack] = value;
+            CantGoBack = value;
         }
     }
 
@@ -220,9 +251,10 @@ public class Room
     #endregion
 
     #region Adding, Saving, and Loading Rooms
+    // change it to JSON thingy
     public Room()
     {
-        Room.Rooms.Add(this);
+        
     }
 
    
