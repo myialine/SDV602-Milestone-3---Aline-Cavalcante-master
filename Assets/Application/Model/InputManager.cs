@@ -16,13 +16,22 @@ public class InputManager : MonoBehaviour
        if(command.ToLower().StartsWith("go")){
            inputWords = new string[]{
                "go", command.Replace("go ", string.Empty).Replace("go ", string.Empty)};
+       
        }else if(command.ToLower().StartsWith("kill")){
            inputWords = new string[]{
                "kill", command.Replace("kill ", string.Empty).Replace("kill ", string.Empty)};
+       
        }else if(command.ToLower().StartsWith("pick")){
            inputWords = new string[]{
                "pick", command.Replace("pick ", string.Empty).Replace("pick ", string.Empty)};
 
+       }else if(command.ToLower().StartsWith("talk")){
+           inputWords = new string[]{
+               "talk", command.Replace("talk ", string.Empty).Replace("talk ", string.Empty)};
+       
+       }else if(command.ToLower().StartsWith("open")){
+           inputWords = new string[]{
+               "open", command.Replace("open ", string.Empty).Replace("open ", string.Empty)};
        }else{
            inputWords = command.Split(' ');
 

@@ -28,7 +28,7 @@ public class StoryManager
        previousComand = storyScene;
 
        if(command != null && command == "go"){           
-
+           #region Switch between rooms that you can go
            switch(command){
                case "bedroom":               
                 if(previousComand == currentRoom.computerRoom.description){
@@ -63,6 +63,18 @@ public class StoryManager
                     previousComand = currentRoom.briefingRoom.description;
                 }               
                break;
+               case "stop":
+                if(previousComand == currentRoom.briefingRoomGrenade.description){
+                    storyScene = currentRoom.briefingStopFight.description;
+                    previousComand = currentRoom.briefingRoomGrenade.briefingStopFight.description;
+
+                }else if(previousComand == currentRoom.briefingRoomCard.description){
+                    storyScene = currentRoom.briefingStopFight.description;
+                    previousComand = currentRoom.briefingRoomCard.briefingStopFight.description;
+                }else{
+                    storyScene = currentRoom.CantGoBack.description;
+                }
+               break;
                case "server":
                 if(previousComand == currentRoom.briefingRoomGrenade.briefingKillAlyss.description){
                     storyScene = currentRoom.briefingRoomGrenade.briefingKillAlyss.serverBasement.description;
@@ -75,17 +87,49 @@ public class StoryManager
                 }else if(previousComand == currentRoom.briefingRoomGrenade.briefingKillKrueger.description){
                     storyScene = currentRoom.briefingRoomGrenade.briefingKillKrueger.serverBasement.description;
                     previousComand = storyScene;
+
                 }else if(previousComand == currentRoom.briefingRoomCard.briefingKillKrueger.description){
                     storyScene = currentRoom.briefingRoomCard.briefingKillKrueger.serverBasement.description;
+                    previousComand = storyScene;
+
+                }else if(previousComand == currentRoom.briefingRoomGrenade.briefingStopFight.description){
+                    storyScene = currentRoom.briefingRoomGrenade.briefingStopFight.serverBasement.description;
+                    previousComand = storyScene;
+                }else if(previousComand == currentRoom.briefingRoomCard.briefingStopFight.description){
+                    storyScene = currentRoom.briefingRoomCard.briefingStopFight.serverBasement.description;
+                    previousComand = storyScene;
+
                 }else{
                     storyScene = currentRoom.CantGoBack.description;
-                }
-                
-               break;
-
-              
+                }                
+               break;              
 
                case "red":
+               if(previousComand == currentRoom.briefingRoomGrenade.briefingKillAlyss.serverBasement.description){
+                   storyScene = currentRoom.briefingRoomGrenade.briefingKillAlyss.redDoorRoom.description;
+                   previousComand = storyScene;
+               }else if(previousComand == currentRoom.briefingRoomGrenade.briefingKillKrueger.serverBasement.description){
+                   storyScene = currentRoom.briefingRoomGrenade.briefingKillKrueger.redDoorRoom.description;
+                   previousComand = storyScene;
+
+               }else if(previousComand == currentRoom.briefingRoomCard.briefingKillAlyss.serverBasement.description){
+                   storyScene = currentRoom.briefingRoomCard.briefingKillAlyss.redDoorRoom.description;
+                   previousComand = storyScene;
+
+               }else if(previousComand == currentRoom.briefingRoomCard.briefingKillKrueger.description){
+                   storyScene = currentRoom.briefingRoomCard.briefingKillKrueger.redDoorRoom.description;
+                   previousComand = storyScene;
+
+               }else if(previousComand == currentRoom.briefingRoomGrenade.briefingStopFight.description){
+                   storyScene = currentRoom.briefingRoomGrenade.briefingStopFight.redDoorRoom.description;
+                   previousComand = storyScene;
+                   
+               }else if(previousComand == currentRoom.briefingRoomCard.briefingStopFight.description){
+                   storyScene = currentRoom.briefingRoomCard.briefingStopFight.redDoorRoom.description;
+                   previousComand = storyScene;
+               }else{
+                   storyScene = currentRoom.CantGoBack.description;
+               }
                break;
 
                default:
@@ -93,8 +137,11 @@ public class StoryManager
                break;
                
            }
-        #region "Kill"   
+           #endregion
+        
+          
        }else if(command != null && command == "kill"){
+           #region "Kill" 
            switch(command){
                case "Allyss":
                 if(previousComand == currentRoom.briefingRoomGrenade.description){
@@ -111,11 +158,14 @@ public class StoryManager
 
                case "Krueger":
                 if(previousComand == currentRoom.briefingRoomGrenade.description){
+                    storyScene = currentRoom.briefingKillKrueger.description;
+                    previousComand = currentRoom.briefingRoomGrenade.briefingKillKrueger.description;
 
                 }else if(previousComand == currentRoom.briefingRoomCard.description){
-                        
+                     storyScene = currentRoom.briefingKillKrueger.description;
+                     previousComand = currentRoom.briefingRoomCard.briefingKillKrueger.description;   
                 }else{
-
+                    storyScene = currentRoom.CantGoBack.description;
                 }
                break;
                
@@ -133,10 +183,11 @@ public class StoryManager
 
                break;
            }
-        #endregion
+            #endregion
         
-        #region "Pick"
+        
        }else if(command != null && command == "pick"){
+           #region "Pick"
            switch(command){
                case "grenade":
                 if(previousComand == currentRoom.briefingRoom.description){
@@ -163,10 +214,11 @@ public class StoryManager
                break;
 
            }
-        #endregion   
+            #endregion   
         
-        #region "Talk" - Endgame
+        
        }else if(command != null && command == "talk"){
+           #region "Talk" - Endgame
            if(previousComand == currentRoom.briefingRoomGrenade.briefingKillAlyss.redDoorRoom.description){
                storyScene = currentRoom.RedRoomTalkKruegerAlive.description;
                CommandInput.DeactivateInputField();
@@ -200,10 +252,11 @@ public class StoryManager
            }else{
                storyScene = "What was that?";
            }
-        #endregion  
+            #endregion  
         
-        #region "Fight" - Endgame
+        
        }else if(command != null && command == "fight"){
+           #region "Fight" - Endgame
            if(previousComand == currentRoom.briefingRoomGrenade.briefingKillAlyss.redDoorRoom.description){
                storyScene = currentRoom.briefingRoomGrenade.RedRoomFightKruegerAlive.description;
                CommandInput.DeactivateInputField();
@@ -237,10 +290,11 @@ public class StoryManager
            }else{
                storyScene = "Invalid command";
            }
-        #endregion   
+            #endregion   
         
-        #region  "Open" - Engame
+        
        }else if(command !=null && command == "open"){
+           #region  "Open" - Engame
            if(previousComand == currentRoom.briefingRoomGrenade.briefingKillAlyss.serverBasement.description){
                storyScene = "Cannot open door without the card!";
                previousComand = currentRoom.briefingRoomGrenade.briefingKillAlyss.serverBasement.description;
@@ -264,10 +318,8 @@ public class StoryManager
                CommandInput.DeactivateInputField();
                ResetStory.SetActive(true);
            }
-        #endregion
-       }
-       
-       else{
+            #endregion
+       }else{
            warningText.text = "Something went wrong...";
        }
        storyText.GetComponent<Text>().text = command + "/n" + storyScene;
