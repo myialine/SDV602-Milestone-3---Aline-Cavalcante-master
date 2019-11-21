@@ -16,7 +16,7 @@ public class Room
    private Room currentRoom;
 
    //This determines the amount of rooms on the array.
-      private string roomDescriptions = "default";
+   private string roomDescriptions = "default";
 
    public string description
    {
@@ -52,7 +52,7 @@ public class Room
            RedRoomFightAllAlive.roomDescriptions = "";
 
            CantGoBack.roomDescriptions = "You cannot go back. Live with your decisions";
-
+        
 
        }
    }
@@ -246,17 +246,12 @@ public class Room
             CantGoBack = value;
         }
     }
-
-    
-    #endregion
-
-    #region Adding, Saving, and Loading Rooms
-    // change it to JSON thingy
     public Room()
     {
         
     }
 
-   
+    
     #endregion
+
 }
