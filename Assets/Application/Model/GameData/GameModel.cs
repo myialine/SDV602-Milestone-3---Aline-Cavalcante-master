@@ -11,6 +11,7 @@ public static class GameModel
     private static Player aplayer = new Player();
     private static Room startingRoom;
     private static Room _currentRoom;
+    public static PlayerManager PlayerManager;
     private static string varDescriprion;
 
     
@@ -56,5 +57,15 @@ public static class GameModel
         }
     }
 
+    public static PlayerManager playerManager{
+        get{
+            return playerManager;
+        }
+
+        set{
+            playerManager = value;
+        }
+
+    }
 
 }

@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Application\Controller\ChatPanelControl.cs" />
      <Compile Include="Assets\Application\Controller\CommandInput.cs" />
      <Compile Include="Assets\Application\Controller\GameManager.cs" />
      <Compile Include="Assets\Application\Controller\MenuPanelControl.cs" />
@@ -63,7 +64,6 @@
      <Compile Include="Assets\Application\Controller\RegisterPanelControl.cs" />
      <Compile Include="Assets\Application\Model\ChatData.cs" />
      <Compile Include="Assets\Application\Model\Database\DatabaseManager.cs" />
-     <Compile Include="Assets\Application\Model\Database\JSONDropManager.cs" />
      <Compile Include="Assets\Application\Model\Database\JSONDropService.cs" />
      <Compile Include="Assets\Application\Model\Database\SQLite.cs" />
      <Compile Include="Assets\Application\Model\GameData\GameModel.cs" />
@@ -74,6 +74,7 @@
      <Compile Include="Assets\Application\Model\GameData\StoryManager.cs" />
      <Compile Include="Assets\Application\Model\GameData\UserAccount.cs" />
      <Compile Include="Assets\Application\Model\InputManager.cs" />
+     <Compile Include="Assets\Application\Model\Login.cs" />
      <Compile Include="Assets\Application\Model\QRCodeState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

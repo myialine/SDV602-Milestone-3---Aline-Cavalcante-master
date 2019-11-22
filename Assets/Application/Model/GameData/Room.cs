@@ -13,7 +13,7 @@ public class Room
    private Player newPlayer = new Player();
    
    [SerializeField]
-   private Room currentRoom;
+   public Room currentRoom;
 
    //This determines the amount of rooms on the array.
    private string roomDescriptions = "default";
